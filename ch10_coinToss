@@ -1,15 +1,20 @@
 import random
-guess = ''
-while guess not in ('heads', 'tails'):
-    print('Guess the coin toss! Enter heads or tails:')
-    guess = input()
-toss = random.randint(0, 1) # 0 is tails, 1 is heads
+coin = ['heads', 'tails']
+toss = str(random.choice(coin))
+guess = input('You call it, heads or tails?\n')
+while guess not in coin:
+    print("Sorry, I don't understand gibberish.")
+    guess = input('Go on then call it, heads or tails?\n')
+win = 'That was it!'
 if toss == guess:
-    print('You got it!')
+    print(win)
 else:
-    print('Nope! Guess again!')
-    guesss = input()
+    print("That wasn't it! Guess again.")
+    guess = input('Come on, heads or tails?\n')
+    while guess not in coin:
+        print("Sorry, I don't understand gibberish.")
+        guess = input('heads or tails?\n')
     if toss == guess:
-       print('You got it!')
+       print(win+" I was worried there for a second.")
     else:
-        print('Nope. You are really bad at this game.')
+        print("Congratulations! You have redefined failure.")
